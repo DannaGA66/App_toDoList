@@ -203,10 +203,21 @@ body{
     flex: 1;
     margin-left: 10px;
     word-wrap: break-word;
-    word-break: break-word; 
-    white-space: normal;    
-    overflow: visible;      
-    padding-right: 10px;    
+    word-break: break-word;
+    white-space: normal;
+    overflow: visible;
+    padding-right: 10px;
+}
+
+#task-list li span.editing {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    outline: none;
+    padding: 2px 5px;
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    width: 100%;
 }
 
 #task-list li.completed span {

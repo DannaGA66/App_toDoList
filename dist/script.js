@@ -74,14 +74,33 @@ document.addEventListener('DOMContentLoaded', () => {
             saveTasks(); 
         });
 
-        editBtn.addEventListener('click', () => {
+               editBtn.addEventListener('click', () => {
             if (!checkbox.checked) {
-                li.remove();
-                taskInput.value = '';
-                toggleEmptyState();
-                updateProgress(false);
-                saveTasks(); 
-                taskInput.focus();
+                const span = li.querySelector('span');
+                if (span.isContentEditable) return;
+
+                span.contentEditable = true;
+                span.classList.add('editing');
+                span.focus();
+
+                document.execCommand('selectAll', false, null);
+                const finishEditing = () => {
+                    span.contentEditable = false;
+                    span.classList.remove('editing');
+
+                    if (span.textContent.trim() === "") {
+                        span.textContent = "Tarea sin título"; 
+                    }
+                    saveTasks();
+                };
+                span.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        span.blur(); 
+                    }
+                });
+
+                span.addEventListener('blur', finishEditing, { once: true });
             }
         });
 
