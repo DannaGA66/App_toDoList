@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 *{
     margin:0;
     padding:0;
@@ -11,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(./images/background.jpg)no-repeat center center/cover;
+    background: url(./images/background.jpg) no-repeat center center/cover;
 }
 
 .container {
@@ -35,7 +36,7 @@ body{
     color: #fff;
     border-radius: 20px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-    border: 3px solid rgba(255, 255, 255, 0.18 );
+    border: 3px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(10px);
 }
 
@@ -57,6 +58,7 @@ body{
 .details {
     width: 100%;
 }
+
 .details h3 {
     color: #fff;
 }
@@ -123,7 +125,7 @@ body{
     color: #fff;
     font-size: 1.1rem;
     background: rgba(163, 39, 245, 0.58);
-    border: 2px solid rgba(255, 255, 255, 0.18 );
+    border: 2px solid rgba(255, 255, 255, 0.18);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -134,7 +136,6 @@ body{
 }
 
 .todos-container {
-   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,18 +145,20 @@ body{
     width: 100%;
 }
 
-#task-list li{
+#task-list li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: rgba(163, 39, 245, 0.58);
     margin-bottom: 10px;
-    padding: 8px 10px;
+    padding: 10px 10px; 
     border-radius: 30px;
     font-size: 1.2rem;
     color: #fff;
     position: relative;
     transition: box-shadow 0.2s ease;
+    min-height: 46px; 
+    height: auto;    
 }
 
 #task-list li:hover {
@@ -163,23 +166,24 @@ body{
 }
 
 #task-list input.checkbox{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     position: relative;
     min-width: 20px;
     width: 20px; 
     height: 20px;
-    border: 2px solid rgba(163, 39, 245, 0.58);
+    border: 2px solid rgba(163, 39, 245, 1); 
     background: transparent;
     border-radius: 50%;
-    appearance: none;
     cursor: pointer;
     transition: all 0.2s ease;
-
+    flex-shrink: 0;
 }
 
 #task-list input.checkbox:checked {
-        background-color: rgba(150, 37, 207, 0.84);
-        transform: scale(1.1);
-        
+    background-color: rgba(150, 37, 207, 1);
+    transform: scale(1.1);
 }
 
 #task-list input.checkbox:checked::before {
@@ -199,7 +203,12 @@ body{
     flex: 1;
     margin-left: 10px;
     word-wrap: break-word;
+    word-break: break-word; 
+    white-space: normal;    
+    overflow: visible;      
+    padding-right: 10px;    
 }
+
 #task-list li.completed span {
     text-decoration: 2px line-through #000;
     color: #000;
@@ -226,6 +235,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0; 
 }
 
 .task-button button:hover {
@@ -235,6 +245,7 @@ body{
 .task-button .edit-btn {
     background: rgba(203, 58, 233, 0.8);
 }
+
 .task-button .delete-btn {
     background: rgba(108, 63, 117, 0.8);
 }
